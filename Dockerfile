@@ -1,3 +1,6 @@
+# copied then modified from:
+# https://github.com/jeanblanchard/docker-tomcat
+
 FROM jeanblanchard/java:8
 MAINTAINER Jean Blanchard <jean@blanchard.io>
 
