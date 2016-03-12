@@ -38,7 +38,16 @@ dependencies {
 
     providedCompile "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}"
 
+    // we're using Titan db, the following deps are required for that
+    // Titan - http://thinkaurelius.github.io/titan/
+    compile 'com.thinkaurelius.titan:titan-core:1.0.0'
+    compile 'com.thinkaurelius.titan:titan-es:1.0.0'
+
     compile 'org.eclipse.jdt.core.compiler:ecj:4.4'
+
+    compile 'com.google.code.gson:gson:2.5'
+
+    testCompile 'junit:junit:4.12'
 
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
