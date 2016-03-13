@@ -38,10 +38,10 @@ public class GraphTest {
         people.add(jenny);
 
         john.addFriend(jane, "sibling");
-        john.addFriend(jim, "math class");
+        john.addFriend(jim, "math_class");
         john.addFriend(jenny, "band");
 
-        jane.addFriend(jenny, "gym class");
+        jane.addFriend(jenny, "gym_class");
 
         graph.tx().commit();
 
