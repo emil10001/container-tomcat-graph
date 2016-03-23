@@ -16,13 +16,12 @@ RUN apk add --update curl &&\
   curl -kLsS https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_VERSION_MAJOR}/v${TOMCAT_VERSION_FULL}/bin/apache-tomcat-${TOMCAT_VERSION_FULL}.tar.gz \
     | gunzip -c - | tar -xf - -C /opt &&\
   ln -s /opt/apache-tomcat-${TOMCAT_VERSION_FULL} /opt/tomcat &&\
-  rm -rf /opt/tomcat/webapps/examples /opt/tomcat/webapps/docs
+  rm -rf /opt/tomcat/webapps/examples /opt/tomcat/webapps/docs /opt/tomcat/webapps/manager /opt/tomcat/webapps/*
 
 # Configuration
 ADD tomcat-users.xml /opt/tomcat/conf/
-RUN sed -i 's/52428800/5242880000/g' /opt/tomcat/webapps/manager/WEB-INF/web.xml
 
-COPY ./build/libs/container-tomcat-graph-0.1.war /opt/tomcat/webapps/
+COPY ./build/ROOT.war /opt/tomcat/webapps/
 
 # Set environment
 ENV CATALINA_HOME /opt/tomcat
